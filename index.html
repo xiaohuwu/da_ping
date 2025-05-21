@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蒲江智慧民政数字看板</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 引入 ECharts -->
+    <script src="js/echarts.js"></script>
+    <script src="js/flexible.js"></script>
+</head>
+
+<body>
+    <div class="dashboard">
+        <!-- 顶部标题 -->
+        <div class="header">
+            <div class="date-time">2025年04月25日 12:04:25</div>
+            <div class="title">蒲江智慧民政数字看板</div>
+        </div>
+
+        <!-- 主体内容 -->
+        <div class="main-content">
+            <!-- 左侧部分 -->
+            <div class="left-section">
+                <!-- 民政概览 -->
+                <div class="panel" id="panel-mingzheng">
+                    <div class="panel-header">
+                        <div class="left"> <img src="imgs/header_left_bg.png" alt="民政概览" class="icon"></div>
+                        <div class="middle"><img src="imgs/header_middle_bg.png" alt="民政概览" class="icon"></div>
+                        <div class="right"><img src="imgs/header_right_bg.png" alt="民政概览" class="icon"></div>
+                        <img src="imgs/triangle.png" alt="">
+                        <div class="header-content">
+                            <img src="imgs/ming_zheng_gai_lan.png" alt="指标总览" class="icon">
+                            <h2>民政概览</h2>
+                        </div>
+                    </div>
+                    <div class="panel-content">
+                        <div class="chart-container">
+                            <div class="chart-title">民政保障投入资金金额</div>
+                            <div id="investmentChart" class="chart"></div>
+                        </div>
+                        <div class="chart-container">
+                            <div class="chart-title">上年度实际支出占比</div>
+                            <div id="expenditurePieChart" class="chart"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 指标总览 -->
+                <div class="panel panel-metrics-overview">
+                    <div class="panel-header">
+                        <div class="left"> <img src="imgs/header_left_bg.png" alt="民政概览" class="icon"></div>
+                        <div class="middle"><img src="imgs/header_middle_bg.png" alt="民政概览" class="icon"></div>
+                        <div class="right"><img src="imgs/header_right_bg.png" alt="民政概览" class="icon"></div>
+                        <img src="imgs/triangle.png" alt="">
+                        <div class="header-content">
+                            <img src="imgs/zhi_biao_zhong_lan.png" alt="指标总览" class="icon">
+                            <h2>指标总览</h2>
+                        </div>
+                    </div>
+                    <div class="panel-content metrics-overview">
+                        <div class="metrics-row">
+                            <div class="metric-box" style="flex-basis: 126px;flex-grow: 0;">
+                                <div class="metric-title">民政服务机构</div>
+                                <div class="metric-value highlight">579<span class="unit">个</span></div>
+                                <div class="metric-detail">
+                                    <div>辖区服务机构</div>
+                                    <div>12<span class="unit">个</span></div>
+                                </div>
+                                <div class="metric-detail">
+                                    <div>婚姻登记机构</div>
+                                    <div>34<span class="unit">个</span></div>
+                                </div>
+                                <div class="metric-detail">
+                                    <div>xxx机构</div>
+                                    <div>34<span class="unit">个</span></div>
+                                </div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="metric-title">民政服务对象</div>
+                                <div class="metric-value highlight">136681<span class="unit">个</span></div>
+                                <div class="metric-detail">
+                                    <div>困境儿童</div>
+                                    <div>21<span class="unit">个</span></div>
+                                </div>
+                                <div class="metric-detail">
+                                    <div>事实无人抚养儿童</div>
+                                    <div>613<span class="unit">个</span></div>
+                                </div>
+                                <div class="metric-detail">
+                                    <div>xxxxx对象</div>
+                                    <div>613<span class="unit">个</span></div>
+                                </div>
+                            </div>
+
+                            <div class="metric-box">
+                                <div class="metric-title">民政补贴发放</div>
+                                <div class="child-row">
+                                    <div class="people-column">
+                                        <div class="metric-value highlight">681579<span class="unit">万元</span></div>
+                                        <div class="metric-detail">
+                                            <div>重度残疾人护理补贴</div>
+                                            <div>2<span class="unit">万元</span></div>
+                                        </div>
+                                        <div class="metric-detail">
+                                            <div>残疾患者补贴</div>
+                                            <div>6<span class="unit">万元</span></div>
+                                        </div>
+                                        <div class="metric-detail">
+                                            <div>xxxx补贴</div>
+                                            <div>6<span class="unit">万元</span></div>
+                                        </div>
+                                        <div class="metric-detail">
+                                            <div>xxxx补贴</div>
+                                            <div>6<span class="unit">万元</span></div>
+                                        </div>
+                                        <div class="metric-detail">
+                                            <div>xxxx补贴</div>
+                                            <div>6<span class="unit">万元</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="people-column" style="flex: 0;">
+                                        <div class="metric-value highlight end-align">8980<span class="unit">人</span>
+                                        </div>
+                                        <div class="metric-detail">
+                                            <div class="people-value">213<span class="unit">人</span></div>
+                                        </div>
+                                        <div class="metric-detail">
+                                            <div class="people-value">612<span class="unit">人</span></div>
+                                        </div>
+                                        <div class="metric-detail">
+                                            <div class="people-value">612<span class="unit">人</span></div>
+                                        </div>
+                                        <div class="metric-detail">
+                                            <div class="people-value">612<span class="unit">人</span></div>
+                                        </div>
+                                        <div class="metric-detail">
+                                            <div class="people-value">612<span class="unit">人</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 慈善与未成年保护 -->
+                <div class="panel panel-bottom">
+                    <div class="panel-header">
+                        <div class="left"> <img src="imgs/header_left_bg.png" alt="民政概览" class="icon"></div>
+                        <div class="middle"><img src="imgs/header_middle_bg.png" alt="民政概览" class="icon"></div>
+                        <div class="right"><img src="imgs/header_right_bg.png" alt="民政概览" class="icon"></div>
+                        <img src="imgs/triangle.png" alt="">
+                        <div class="header-content">
+                            <img src="imgs/chi_shan_bao_hu.png" alt="指标总览" class="icon">
+                            <h2>慈善与未成年保护</h2>
+                        </div>
+                    </div>
+                    <div class="panel-content">
+                        <div class="charity-section">
+                            <div class="charity-item">
+                                <div class="charity-title">慈善捐赠总金额</div>
+                                <div class="charity-group">
+                                    <div class="charity-group-item">
+                                        <div class="group-name">捐赠总金额</div>
+                                        <div class="group-value">123<span class="unit">万元</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="charity-item">
+                                <div class="charity-title">慈善组织/社区</div>
+                                <div class="charity-group">
+                                    <div class="charity-group-item">
+                                        <div class="group-name">慈善组织</div>
+                                        <div class="group-value">89<span class="unit">个</span></div>
+                                    </div>
+                                    <div class="charity-group-item">
+                                        <div class="group-name">慈善社区</div>
+                                        <div class="group-value">123<span class="unit">个</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="charity-item">
+                                <div class="charity-title">社会关爱援助中心服务站概况</div>
+                                <div class="charity-group">
+                                    <div class="charity-group-item">
+                                        <div class="group-name">援助服务站</div>
+                                        <div class="group-value">32329<span class="unit">个</span></div>
+                                    </div>
+                                    <div class="charity-group-item">
+                                        <div class="group-name">援助中心</div>
+                                        <div class="group-value">32329<span class="unit">个</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="minor-protection">
+                            <div class="protection-metrics">
+                                <div class="protection-title">未成年保护对象总数和分布情况</div>
+                                <div class="protection-value">18579<span class="unit">人</span></div>
+
+                                <div class="protection-bars">
+                                    <div class="bar-item">
+                                        <span class="bar-label">孤儿</span>
+                                        <div class="bar-container">
+                                            <div class="bar" style="width: 67%"></div>
+                                            <span class="bar-value">67</span>
+                                        </div>
+                                    </div>
+                                    <div class="bar-item">
+                                        <span class="bar-label">事实无人抚养</span>
+                                        <div class="bar-container">
+                                            <div class="bar" style="width: 67%"></div>
+                                            <span class="bar-value">67</span>
+                                        </div>
+                                    </div>
+                                    <div class="bar-item">
+                                        <span class="bar-label">留守儿童</span>
+                                        <div class="bar-container">
+                                            <div class="bar" style="width: 70%"></div>
+                                            <span class="bar-value">70</span>
+                                        </div>
+                                    </div>
+                                    <div class="bar-item">
+                                        <span class="bar-label">困境儿童</span>
+                                        <div class="bar-container">
+                                            <div class="bar" style="width: 70%"></div>
+                                            <span class="bar-value">70</span>
+                                        </div>
+                                    </div>
+                                    <div class="bar-item">
+                                        <span class="bar-label">特殊儿童</span>
+                                        <div class="bar-container">
+                                            <div class="bar" style="width: 10%"></div>
+                                            <span class="bar-value">10</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="teams-metrics">
+                                <div class="teams-title">未成年人保护团体</div>
+                                <div class="teams-details">
+                                    <div class="teams-parent">
+                                        <div class="team-row">
+                                            <div class="team-label">志愿者</div>
+                                            <div class="team-value">2467<span class="unit">人</span></div>
+                                        </div>
+                                        <div class="team-row">
+                                            <div class="team-label">社工</div>
+                                            <div class="team-value">1324<span class="unit">人</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="teams-parent">
+                                        <div class="team-row">
+                                            <div class="team-label">社会组织</div>
+                                            <div class="team-value">36263<span class="unit">人</span></div>
+                                        </div>
+                                        <div class="team-row">
+                                            <div class="team-label">专家</div>
+                                            <div class="team-value">212<span class="unit">人</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="base-metrics">
+                                    <div class="base-title">未成年人保护阵地</div>
+                                    <div class="base-details">
+                                        <div class="teams-parent">
+                                            <div class="base-row">
+                                                <div class="base-label">保护阵地总数</div>
+                                                <div class="base-value">32329<span class="unit">个</span></div>
+                                            </div>
+                                            <div class="base-row">
+                                                <div class="base-label">人员配置数</div>
+                                                <div class="base-value">1314<span class="unit">人</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 中间地图部分 -->
+            <div class="center-section">
+                <div class="location-selector">
+                    <div class="location-box">蒲江县</div>
+                </div>
+                <div id="mapContainer" class="map-container"></div>
+
+
+                <div class="popup-box visible" id="districtInfo">
+                    <div class="popup-title">鹤山街道</div>
+                    <div class="popup-content">
+                        <div class="popup-row">
+                            <div class="popup-label">民政服务机构</div>
+                            <div class="popup-value">579<span class="unit">个</span></div>
+                        </div>
+                        <div class="popup-row">
+                            <div class="popup-label">民政服务对象</div>
+                            <div class="popup-value">136,681<span class="unit">人</span></div>
+                        </div>
+                        <div class="popup-row">
+                            <div class="popup-label">民政补贴发放</div>
+                            <div class="popup-value">681,579<span class="unit">万元</span></div>
+                        </div>
+                        <div class="popup-row">
+                            <div class="popup-label">民政补贴人数</div>
+                            <div class="popup-value">8980<span class="unit">人</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 底部导航 -->
+                <div class="bottom-nav">
+                    <div class="nav-item active">首页</div>
+                    <div class="nav-item">慈善与未成年保护</div>
+                    <div class="nav-item">社会救助</div>
+                    <div class="nav-item">养老服务与老龄工作</div>
+                    <div class="nav-item">社会事务</div>
+                    <div class="nav-item">区划地名</div>
+                    <div class="nav-item">其他</div>
+                </div>
+            </div>
+
+            <!-- 右侧部分 -->
+            <div class="right-section">
+                <!-- 社会救助 -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="left"> <img src="imgs/header_left_bg.png" alt="民政概览" class="icon"></div>
+                        <div class="middle"><img src="imgs/header_middle_bg.png" alt="民政概览" class="icon"></div>
+                        <div class="right"><img src="imgs/header_right_bg.png" alt="民政概览" class="icon"></div>
+                        <img src="imgs/triangle.png" alt="">
+                        <div class="header-content">
+                            <img src="imgs/she_hui_jiu_zu.png" alt="指标总览" class="icon">
+                            <h2>社会救助</h2>
+                        </div>
+                    </div>
+                    <div class="panel-content">
+                        <div class="assistance-list">
+                            <div class="assistance-item">
+                                <div class="num">01</div>
+                                <div class="assistance-name">低多低保</div>
+                                <div class="assistance-people">9946<span class="unit">人</span></div>
+                                <div class="assistance-people">134242<span class="unit">元</span></div>
+                            </div>
+                            <div class="assistance-item">
+                                <div class="num">02</div>
+                                <div class="assistance-name">城乡特困</div>
+                                <div class="assistance-people">9915<span class="unit">人</span></div>
+                                <div class="assistance-people">414415<span class="unit">元</span></div>
+                            </div>
+                            <div class="assistance-item">
+                                <div class="num">03</div>
+                                <div class="assistance-name">低保边缘</div>
+                                <div class="assistance-people">8980<span class="unit">人</span></div>
+                                <div class="assistance-people">134242<span class="unit">元</span></div>
+                            </div>
+                            <div class="assistance-item">
+                                <div class="num">04</div>
+                                <div class="assistance-name">临时救助</div>
+                                <div class="assistance-people">8192<span class="unit">人</span></div>
+                                <div class="assistance-people">134242<span class="unit">元</span></div>
+                            </div>
+                            <div class="assistance-item">
+                                <div class="num">05</div>
+                                <div class="assistance-name">孤儿人员</div>
+                                <div class="assistance-people">7873<span class="unit">人</span></div>
+                                <div class="assistance-people">134242<span class="unit">元</span></div>
+                            </div>
+                            <div class="assistance-item">
+                                <div class="num">06</div>
+                                <div class="assistance-name">高龄老人</div>
+                                <div class="assistance-people">7608<span class="unit">人</span></div>
+                                <div class="assistance-people">134242<span class="unit">元</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 养老服务 -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="left"> <img src="imgs/header_left_bg.png" alt="民政概览" class="icon"></div>
+                        <div class="middle"><img src="imgs/header_middle_bg.png" alt="民政概览" class="icon"></div>
+                        <div class="right"><img src="imgs/header_right_bg.png" alt="民政概览" class="icon"></div>
+                        <img src="imgs/triangle.png" alt="">
+                        <div class="header-content">
+                            <img src="imgs/yang_lao_fu_wu.png" alt="指标总览" class="icon">
+                            <h2>养老服务</h2>
+                        </div>
+                    </div>
+                    <div class="panel-content">
+                        <div class="panel-row">
+                            <div class="elderly-distribution">
+                                <div class="section-title">老年人分布</div>
+                                <div class="elderly-stats">
+                                    <div class="elderly-stat">
+                                        <div class="stat-label">老人总数</div>
+                                        <div class="stat-value">3889<span class="unit">万人</span></div>
+                                    </div>
+                                    <div class="elderly-stat">
+                                        <div class="stat-label">老龄化率</div>
+                                        <div class="stat-value">34<span class="unit">%</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="elderly-care-ratio">
+                                <div class="section-title">养老方式占比</div>
+                                <div class="care-types">
+                                    <div class="care-type">
+                                        <div class="gradient-bar"></div>
+                                        <div class="type-name">社区</div>
+                                        <div class="type-value">27847<span class="unit">人</span></div>
+
+                                    </div>
+                                    <div class="care-type">
+                                        <div class="gradient-bar"></div>
+                                        <div class="type-name">机构</div>
+                                        <div class="type-value">27847<span class="unit">人</span></div>
+                                    </div>
+                                    <div class="care-type">
+                                        <div class="gradient-bar"></div>
+                                        <div class="type-name">居家</div>
+                                        <div class="type-value">524<span class="unit">人</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 社会事务 -->
+                <div class="panel panel-bottom">
+                    <div class="panel-header">
+                        <div class="left"> <img src="imgs/header_left_bg.png" alt="民政概览" class="icon"></div>
+                        <div class="middle"><img src="imgs/header_middle_bg.png" alt="民政概览" class="icon"></div>
+                        <div class="right"><img src="imgs/header_right_bg.png" alt="民政概览" class="icon"></div>
+                        <img src="imgs/triangle.png" alt="">
+                        <div class="header-content">
+                            <img src="imgs/she_hui_shi_wu.png" alt="指标总览" class="icon">
+                            <h2>社会事务</h2>
+                        </div>
+                    </div>
+                    <div class="panel-content">
+                        <div class="panel-row">
+                            <div class="affairs-section">
+                                <div class="section-title">结婚登记</div>
+                                <div class="affairs-stats">
+                                    <div class="affair-stat">
+                                        <div class="stat-name">结婚</div>
+                                        <div class="stat-value">19738<span class="unit">对</span></div>
+                                    </div>
+                                    <div class="affair-stat">
+                                        <div class="stat-name">离婚</div>
+                                        <div class="stat-value">1938<span class="unit">对</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="affairs-section">
+                                <div class="section-title">殡葬服务</div>
+                                <div class="affairs-stats">
+                                    <div class="affair-stat">
+                                        <div class="stat-name">火化数量</div>
+                                        <div class="stat-value">1938<span class="unit">具</span></div>
+                                    </div>
+                                </div>
+                                <div class="resident-stats">
+                                    <div class="resident-stat">
+                                        <div class="stat-label">居民惠补人数</div>
+                                        <div class="stat-value">
+                                            <span class="stat-value">248989</span>
+                                            <span class="unit">人</span>
+                                        </div>
+                                    </div>
+                                    <div class="resident-stat">
+                                        <div class="stat-label">居民惠补金额</div>
+                                        <div class="stat-value">
+                                            <span class="stat-value">248989</span>
+                                            <span class="unit">万元</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 区划地名 -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="left"> <img src="imgs/header_left_bg.png" alt="民政概览" class="icon"></div>
+                        <div class="middle"><img src="imgs/header_middle_bg.png" alt="民政概览" class="icon"></div>
+                        <div class="right"><img src="imgs/header_right_bg.png" alt="民政概览" class="icon"></div>
+                        <img src="imgs/triangle.png" alt="">
+                        <div class="header-content">
+                            <img src="imgs/qu_hua_di_ming.png" alt="指标总览" class="icon">
+                            <h2>区划地名</h2>
+                        </div>
+                    </div>
+                    <div class="panel-content location-content">
+                        <div class="location-stats">
+                            <div class="location-stat">
+                                <span class="stat-name">镇</span>
+                                <span class="stat-value">6<span class="unit">个</span></span>
+                            </div>
+                            <div class="location-stat">
+                                <span class="stat-name">街道</span>
+                                <span class="stat-value">2<span class="unit">个</span></span>
+                            </div>
+                            <div class="location-stat">
+                                <span class="stat-name">界线</span>
+                                <span class="stat-value">8278<span class="unit">条</span></span>
+                            </div>
+                            <div class="location-stat">
+                                <span class="stat-name">地名</span>
+                                <span class="stat-value">14989<span class="unit">个</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 社会组织管理 -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="left"> <img src="imgs/header_left_bg.png" alt="民政概览" class="icon"></div>
+                        <div class="middle"><img src="imgs/header_middle_bg.png" alt="民政概览" class="icon"></div>
+                        <div class="right"><img src="imgs/header_right_bg.png" alt="民政概览" class="icon"></div>
+                        <img src="imgs/triangle.png" alt="">
+                        <div class="header-content">
+                            <img src="imgs/she_hui_zhu_zhi.png" alt="指标总览" class="icon">
+                            <h2>社会组织管理</h2>
+                        </div>
+                    </div>
+                    <div class="panel-content">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="js/charts.js"></script>
+</body>
+
+</html>

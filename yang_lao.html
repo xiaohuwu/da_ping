@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蒲江智慧民政数字看板</title>
+    <link rel="stylesheet" href="css/yang_lao.css">
+    <!-- 引入 ECharts -->
+    <script src="js/echarts.js"></script>
+    <script src="js/flexible.js"></script>
+</head>
+
+<body>
+
+    <div class="dashboard">
+        <!-- 顶部标题 -->
+        <div class="header">
+            <div class="date-time">2025年04月25日 12:04:25</div>
+            <div class="title">蒲江智慧民政数字看板</div>
+        </div>
+
+        <!-- 主体内容 -->
+        <div class="main-content">
+            <!-- 左侧部分 -->
+            <div class="left-section">
+                <!-- 老年人总数 -->
+                <div class="panel elderly-dashboard">
+                    <div class="panel-header">
+                        <div class="left">
+                            <div class="elderly-stats-title">老年人总数</div>
+                            <div class="elderly-stats-value">97879<span class="unit">人</span></div>
+                        </div>
+                        <div class="right">
+                            <div class="elderly-stats-rate">老龄化率</div>
+                            <div class="elderly-stats-value">23%</div>
+                        </div>
+                    </div>
+                    <div class="panel-middle">
+                        <div class="age-distribution-title">老人年龄分析</div>
+                        <div class="age-distribution-chart" id="ageDistributionChart"></div>
+                    </div>
+                    <div class="panel-bottom">
+                        <div class="care-type-title">养老方式占比</div>
+                        <div class="care-type-distribution">
+                            <div class="care-type-item">
+                                <div class="gradient-bar"></div>
+                                <div class="care-type-label">社区养老</div>
+                                <div class="care-type-value">27847<span class="unit">人</span></div>
+                            </div>
+                            <div class="care-type-item">
+                                <div class="gradient-bar"></div>
+                                <div class="care-type-label">机构养老</div>
+                                <div class="care-type-value">27847<span class="unit">人</span></div>
+                            </div>
+                            <div class="care-type-item">
+                                <div class="gradient-bar"></div>
+                                <div class="care-type-label">居家养老</div>
+                                <div class="care-type-value">524<span class="unit">人</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 服务老人人次 -->
+                <div class="panel elderly-dashboard">
+                    <div class="panel-header">
+                        <div class="left">
+                            <div class="elderly-stats-title">服务老人人次</div>
+                            <div class="elderly-stats-value">97879<span class="unit">人</span></div>
+                        </div>
+                    </div>
+                    <div class="panel-middle">
+                        <div class="age-distribution-title">老人年龄分析</div>
+                        <div class="age-distribution-chart" id="investmentChart"></div>
+                    </div>
+                </div>
+
+                <!-- 养老服务机构分布 -->
+                <div class="panel elderly-dashboard">
+                    <div class="panel-header">
+                        <div class="left">
+                            <div class="elderly-stats-title">养老服务机构分布</div>
+                        </div>
+
+                    </div>
+                    <div class="panel-middle">
+                        <div class="age-distribution-chart" id="organChart"></div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- 中间地图部分 -->
+            <div class="center-section">
+                <div class="location-selector">
+                    <div class="location-box">蒲江县</div>
+                </div>
+                <div id="mapContainer" class="map-container"></div>
+
+                <!-- 底部导航 -->
+                <div class="bottom-nav">
+                    <div class="nav-item active">首页</div>
+                    <div class="nav-item">慈善与未成年保护</div>
+                    <div class="nav-item">社会救助</div>
+                    <div class="nav-item">养老服务与老龄工作</div>
+                    <div class="nav-item">社会事务</div>
+                    <div class="nav-item">区划地名</div>
+                    <div class="nav-item">其他</div>
+                </div>
+            </div>
+
+            <!-- 右侧部分 -->
+            <div class="right-section">
+                <!-- 智能设备数量 -->
+                <div class="panel elderly-dashboard">
+                    <div class="panel-header">
+                        <div class="left">
+                            <div class="elderly-stats-title">智能设备数量</div>
+                            <div class="elderly-stats-value">97879<span class="unit">个</span></div>
+                        </div>
+                    </div>
+                    <div class="panel-middle">
+                        <div class="age-distribution-title">智能设备分析</div>
+                        <div class="age-distribution-chart" id="deviceChart"></div>
+                    </div>
+                </div>
+                <!-- 服务人员总数 -->
+                <div class="panel elderly-dashboard">
+                    <div class="panel-header">
+                        <div class="left">
+                            <div class="elderly-stats-title">服务人员总数</div>
+                            <div class="elderly-stats-value">97879<span class="unit">人</span></div>
+                        </div>
+                        <div class="right">
+                            <div class="elderly-stats-rate">服务人员配比</div>
+                            <div class="elderly-stats-value">1:10</div>
+                        </div>
+                    </div>
+                    <div class="panel-bottom">
+                        <div class="care-type-title">养老方式占比</div>
+                        <div class="care-type-distribution">
+                            <div class="care-type-item">
+                                <div class="gradient-bar"></div>
+                                <div class="care-type-label">社区养老</div>
+                                <div class="care-type-value">27847<span class="unit">人</span></div>
+                            </div>
+                            <div class="care-type-item">
+                                <div class="gradient-bar"></div>
+                                <div class="care-type-label">机构养老</div>
+                                <div class="care-type-value">27847<span class="unit">人</span></div>
+                            </div>
+                            <div class="care-type-item">
+                                <div class="gradient-bar"></div>
+                                <div class="care-type-label">居家养老</div>
+                                <div class="care-type-value">524<span class="unit">人</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-middle">
+                        <div class="age-distribution-title">服务类型占比</div>
+                        <div class="age-distribution-chart" id="serviceChart"></div>
+                    </div>
+                </div>
+
+                <div class="panel elderly-dashboard">
+                    <div class="panel-header">
+                        <div class="left">
+                            <div class="elderly-stats-title">养老服务满意度</div>
+                        </div>
+                    </div>
+                    <div class="panel-middle">
+                        <div class="chart-container">
+                            <div class="chart-legend">
+                                <div class="legend-item">
+                                    <span class="legend-dot" style="background-color: #00cbff"></span>
+                                    <span class="legend-text">服务态度</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-dot" style="background-color: #3a9eff"></span>
+                                    <span class="legend-text">服务质量</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-dot" style="background-color: #00ffd0"></span>
+                                    <span class="legend-text">响应速度</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-dot" style="background-color: #ffa458"></span>
+                                    <span class="legend-text">整体满意度</span>
+                                </div>
+                            </div>
+                            <div class="start-chart">
+                                <div class="age-distribution-chart" id="evaluateChart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/elderly_dashboard.js"></script>
+</body>
+
+</html>

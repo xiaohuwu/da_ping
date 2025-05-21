@@ -1,0 +1,904 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft YaHei", sans-serif;
+}
+
+body {
+    position: relative;
+    background: url(../imgs/body_bg.png) no-repeat center center;
+    background-size: 100% 100%;
+    color: #fff;
+    overflow: auto;
+}
+
+.dashboard {
+    width: 100%;
+    min-height: 100vh;
+    padding: .15rem;
+    padding-top: .625rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 顶部标题 */
+.header {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    position: absolute;
+    height: 1.125rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: url(../imgs/Frame\ 421@2x.png) no-repeat center center;
+    background-size: 100% 100%;
+    min-height: 1.125rem;
+    z-index: 1;
+}
+
+/* .header::before, .header::after {
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 20%;
+    background-image: linear-gradient(to right, transparent, #2a82e4, transparent);
+} */
+
+.header::before {
+    top: 0;
+    left: 0;
+}
+
+.header::after {
+    bottom: 0;
+    right: 0;
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    font-size: .325rem;
+    font-weight: bold;
+    color: #29edf3;
+    text-shadow: 0 0 .125rem rgba(41, 237, 243, 0.7);
+    letter-spacing: .05rem;
+    line-height: .75rem;
+    white-space: nowrap;
+}
+
+.date-time {
+    position: absolute;
+    right: .25rem;
+    font-size: .2rem;
+    color: #29edf3;
+    line-height: .375rem;
+    top: 0px;
+}
+
+/* 主体内容 */
+.main-content {
+    flex: 1;
+    display: flex;
+    gap: .125rem;
+    min-height: 0;
+}
+
+/* 左侧部分 */
+.left-section {
+    display: flex;
+    flex-direction: column;
+    gap: .125rem;
+    overflow-y: auto;
+    padding-right: .125rem;
+}
+
+/* 中间地图部分 */
+.center-section {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 右侧部分 */
+.right-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 5px;
+}
+
+/* 面板通用样式 */
+.panel {
+    width: 6.7rem;
+    background-color: transparent;
+    border: 1px solid rgba(42, 130, 228, 0.5);
+    padding-top: 0px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: .0625rem;
+    padding-bottom: 0rem;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    height: .6rem;
+    position: relative;
+    border-bottom: 1px solid rgba(42, 130, 228, 0.5);
+}
+
+.panel-header>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: .125rem;
+    height: .125rem;
+}
+
+.header-content {
+    position: absolute;
+    top: 0;
+    left: .125rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.header-content img {
+    width: .25rem;
+    height: .25rem;
+    margin-right: .05rem;
+}
+
+.panel-header .left {
+    width: .175rem;
+    height: auto;
+}
+
+.panel-header .left img {
+    width: 100%;
+    height: auto;
+}
+
+.panel-header .middle {
+    flex: 1;
+    height: 100%;
+}
+
+.panel-header .middle img {
+    height: 100%;
+    width: auto;
+}
+
+.panel-header .right img {
+    width: 2.5rem;
+    height: auto;
+}
+
+.panel-header h2 {
+    font-size: .25rem;
+    color: #28B7FF;
+    font-weight: normal;
+}
+
+.panel-content {
+    padding: .1rem;
+    padding-top: .125rem;
+}
+
+/* 民政概览面板内容横向布局 */
+#panel-mingzheng .panel-content {
+    display: flex;
+    justify-content: space-between;
+    gap: .125rem;
+}
+
+/* 图表容器 */
+.chart-container {
+    margin-bottom: .1875rem;
+    width: 100%;
+}
+
+#panel-mingzheng .chart-container {
+    margin-bottom: 0;
+    width: 48%;
+}
+
+.panel-row {
+    display: flex;
+    gap: .125rem;
+}
+
+.chart-title {
+    font-size: .2rem;
+    color: #28B7FF;
+    margin-bottom: .125rem;
+}
+
+.chart {
+    width: 100%;
+    height: 1.875rem;
+}
+
+#panel-mingzheng .chart {
+    height: 1.875rem;
+}
+
+/* 指标总览样式 */
+.metrics-overview {
+    display: flex;
+    flex-direction: column;
+    gap: .125rem;
+    padding-bottom: 0px;
+    padding-top: .0625rem;
+}
+
+.panel-metrics-overview {
+    padding-bottom: 0px;
+}
+
+.metrics-row {
+    display: flex;
+    gap: .125rem;
+    height: 50%;
+}
+
+.metric-box {
+    flex: 1;
+    border-radius: 5px;
+    padding: .125rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(40, 183, 255, 0.14) 0%, rgba(79, 40, 255, 0) 100%);
+    border-radius: 8px 8px 8px 8px;
+}
+
+.metric-box:last-child {
+    flex: 1.4;
+}
+
+.metric-title {
+    font-size: .2rem;
+    color: #28B7FF;
+    margin-bottom: .025rem;
+}
+
+.metric-value {
+    font-size: .275rem;
+    color: #A2D1FF;
+    margin-bottom: .1rem;
+}
+
+.metric-value.highlight {
+    font-size: .275rem;
+    font-weight: bold;
+}
+
+.metric-value.end-align {
+    text-align: right;
+    margin-bottom: .1125rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.metric-detail {
+    font-size: .15rem;
+    margin-bottom: .1rem;
+    color: #a8c6ff;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.people-column .metric-detail {
+    justify-content: flex-end;
+}
+
+.unit {
+    font-size: .175rem;
+    color: #28B7FF;
+    margin-left: 2px;
+}
+
+/* 慈善与未成年保护 */
+.charity-section {
+    display: flex;
+    margin-bottom: .1rem;
+    border-radius: 0;
+}
+
+.charity-item {
+    flex: 1;
+    padding: .125rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(40, 183, 255, 0.14) 0%, rgba(79, 40, 255, 0) 100%);
+    border-right: 1px solid rgba(42, 130, 228, 0.3);
+    justify-content: space-between;
+}
+
+.charity-item:last-child {
+    border-right: none;
+}
+
+.charity-title {
+    font-size: .2rem;
+    color: #a8c6ff;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: .125rem;
+}
+
+.charity-value {
+    font-size: 16px;
+    color: #fff;
+}
+
+.charity-group {
+    display: flex;
+    margin-top: 0;
+}
+
+.charity-group-item {
+    flex: 1;
+    font-size: .175rem;
+}
+
+.group-name {
+    color: #a8c6ff;
+    font-size: .175rem;
+}
+
+.group-value {
+    color: #fff;
+    font-size: .2rem;
+}
+
+.section-title {
+    font-size: .2rem;
+    margin-bottom: .125rem;
+}
+
+.elderly-stats {
+    display: flex;
+    gap: .25rem;
+}
+
+.elderly-stat {
+    flex: 1;
+}
+
+.stat-label {
+    font-size: .175rem;
+    color: #a8c6ff;
+}
+
+.stat-value {
+    font-size: .225rem;
+    color: #29edf3;
+    white-space: nowrap;
+}
+
+.care-types {
+    display: flex;
+    gap: .075rem;
+}
+
+.care-type {
+    flex: 1;
+    border-radius: 4px;
+}
+
+.type-name {
+    font-size: .175rem;
+    color: #a8c6ff;
+}
+
+.type-value {
+    font-size: .2rem;
+    color: #29edf3;
+    white-space: nowrap;
+}
+
+.affairs-section {
+    padding: .125rem;
+    padding-bottom: 0rem;
+    background: linear-gradient(180deg, rgba(40, 183, 255, 0.14) 0%, rgba(79, 40, 255, 0) 100%);
+    flex: 1;
+}
+
+.affairs-stats.small-stats {
+    flex-direction: column;
+    gap: .125rem;
+}
+
+.affair-stat {
+    flex: 1;
+    margin-bottom: .125rem;
+}
+
+/* 区划地名样式 */
+.location-content {
+    padding: .125rem 0;
+}
+
+.location-stats {
+    display: flex;
+}
+
+.location-stat {
+    flex: 1;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.stat-name {
+    font-size: .175rem;
+    color: #a8c6ff;
+}
+
+/* 社会组织管理样式 */
+.org-metrics {
+    display: flex;
+    gap: .125rem;
+    margin-bottom: .1875rem;
+}
+
+.org-metric {
+    flex: 1;
+    padding: .125rem;
+    border-radius: 4px;
+}
+
+.org-details {
+    display: flex;
+    flex-direction: column;
+    gap: .1875rem;
+}
+
+.detail-section {
+    flex: 1;
+}
+
+.detail-title {
+    font-size: .2rem;
+    margin-bottom: .125rem;
+}
+
+.detail-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .1rem;
+}
+
+.detail-row {
+    width: calc(50% - 4px);
+    display: flex;
+    justify-content: space-between;
+    padding: .125rem .25rem;
+    border-radius: 4px;
+}
+
+.detail-level {
+    color: #29edf3;
+}
+
+.detail-value {
+    color: #fff;
+}
+
+.org-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .125rem .25rem;
+    border-radius: 4px;
+}
+
+.total-label {
+    font-size: .175rem;
+    color: #a8c6ff;
+}
+
+.total-value {
+    font-size: .225rem;
+    color: #29edf3;
+}
+
+/* 自定义滚动条样式 */
+::-webkit-scrollbar {
+    width: .075rem;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(9, 24, 56, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(42, 130, 228, 0.7);
+    border-radius: .0625rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #29edf3;
+}
+
+.minor-protection {
+    display: flex;
+    gap: .125rem;
+}
+
+.protection-metrics {
+    padding: .125rem;
+    background: linear-gradient(180deg, rgba(40, 183, 255, 0.14) 0%, rgba(79, 40, 255, 0) 100%);
+    flex: 1;
+    padding-bottom: 0rem;
+}
+
+.protection-title {
+    font-size: .2rem;
+    margin-bottom: .125rem;
+}
+
+.protection-value {
+    font-size: .275rem;
+    color: #29edf3;
+    margin-bottom: .125rem;
+}
+
+.protection-bars {
+    margin-top: .125rem;
+}
+
+.bar-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: .1rem;
+    padding-right: .6rem;
+}
+
+.bar-label {
+    width: 100px;
+    font-size: .175rem;
+    color: #a8c6ff;
+}
+
+.bar-container {
+    flex: 1;
+    height: .125rem;
+    background-color: rgba(42, 130, 228, 0.3);
+    border-radius: .0625rem;
+    position: relative;
+}
+
+.bar {
+    height: 100%;
+    background-color: #29edf3;
+    border-radius: .0625rem;
+}
+
+.bar-value {
+    position: absolute;
+    right: -25px;
+    top: -2px;
+    font-size: .175rem;
+    color: #fff;
+}
+
+.teams-metrics {
+    flex: 1;
+    background: linear-gradient(180deg, rgba(40, 183, 255, 0.14) 0%, rgba(79, 40, 255, 0) 100%);
+    border-radius: .0625rem;
+    padding: .125rem;
+    padding-bottom: 0rem;
+}
+
+.teams-title {
+    font-size: .2rem;
+    margin-bottom: .125rem;
+    color: #fff;
+}
+
+.teams-details {
+    margin-bottom: .1875rem;
+}
+
+.teams-parent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.team-row {
+    margin-bottom: .1rem;
+}
+
+.team-label {
+    color: #a8c6ff;
+}
+
+.team-value {
+    color: #fff;
+}
+
+.base-metrics {
+    border-top: 1px solid rgba(42, 130, 228, 0.3);
+    padding-top: .125rem;
+}
+
+.base-title {
+    font-size: .2rem;
+    margin-bottom: .125rem;
+    color: #fff;
+}
+
+.base-details {
+    /* margin-bottom: .125rem; */
+}
+
+.base-row {
+    font-size: .175rem;
+    margin-bottom: .1rem;
+}
+
+.base-label {
+    color: #a8c6ff;
+}
+
+.base-value {
+    color: #fff;
+}
+
+/* 地图容器 */
+.location-selector {
+    padding: .125rem 0;
+    display: flex;
+}
+
+.location-box {
+    margin-top: .1875rem;
+    background-color: rgba(42, 130, 228, 0.5);
+    padding: .125rem .5rem;
+    border-radius: .0625rem;
+    font-size: .2rem;
+    color: #fff;
+    position: relative;
+}
+
+.location-box::after {
+    content: "";
+    position: absolute;
+    right: .125rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: .1rem .1rem 0 .1rem;
+    border-color: #fff transparent transparent transparent;
+}
+
+.map-container {
+    flex: 1;
+    border-radius: .0625rem;
+    position: relative;
+    overflow: hidden;
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+    background: url(../imgs/map.png) no-repeat center center;
+    background-size: 14rem 9.75rem;
+}
+
+.popup-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(9, 24, 56, 0.9);
+    border: 1px solid rgba(42, 130, 228, 0.7);
+    border-radius: .0625rem;
+    padding: .125rem;
+    width: 2.5rem;
+    display: none;
+}
+
+.popup-box.visible {
+    display: block;
+}
+
+.popup-title {
+    font-size: .2rem;
+    color: #29edf3;
+    text-align: center;
+    margin-bottom: .125rem;
+    padding-bottom: .125rem;
+    border-bottom: 1px solid rgba(42, 130, 228, 0.5);
+}
+
+.popup-content {
+    font-size: .175rem;
+}
+
+.popup-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .125rem;
+}
+
+.popup-label {
+    color: #a8c6ff;
+}
+
+.popup-value {
+    color: #fff;
+}
+
+/* 底部导航 */
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    padding: .125rem 0;
+    border-radius: .0625rem;
+    margin-top: .125rem;
+}
+
+.nav-item {
+    font-size: .175rem;
+    color: #a8c6ff;
+    padding: .125rem .25rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.nav-item:hover {
+    color: #29edf3;
+}
+
+.nav-item.active {
+    color: #29edf3;
+    border-bottom: 2px solid #29edf3;
+}
+
+/* 社会救助样式 */
+.assistance-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.assistance-item {
+    display: flex;
+    align-items: center;
+    padding: .09rem;
+    border-radius: .0625rem;
+}
+
+.assistance-people .unit {
+    font-size: .15rem;
+}
+
+.num {
+    width: 10%;
+    color: #29edf3;
+    font-size: .175rem;
+    font-weight: bold;
+}
+
+.assistance-name {
+    width: 30%;
+    font-size: .175rem;
+}
+
+.assistance-people {
+    width: 30%;
+    color: #29edf3;
+    font-size: .2rem;
+    text-align: right;
+}
+
+.assistance-money {
+    width: 30%;
+    color: #6f9efb;
+    font-size: .175rem;
+    text-align: right;
+}
+
+.elderly-distribution {
+    padding: .125rem;
+    padding-right: .25rem;
+    background: linear-gradient(180deg, rgba(40, 183, 255, 0.14) 0%, rgba(79, 40, 255, 0) 100%);
+}
+
+.elderly-care-ratio {
+    flex: 1;
+    background: linear-gradient(180deg, rgba(40, 183, 255, 0.14) 0%, rgba(79, 40, 255, 0) 100%);
+    padding: .125rem;
+    padding-bottom: .025rem;
+}
+
+.gradient-bar {
+    width: 100%;
+    height: .075rem;
+    background: linear-gradient(to right, #2a82e4, #29edf3);
+    margin-bottom: .125rem;
+}
+
+.care-type:nth-child(1) .gradient-bar {
+    border-top-left-radius: .0625rem;
+    border-bottom-left-radius: .0625rem;
+}
+
+.care-type:nth-child(3) .gradient-bar {
+    border-top-right-radius: .0625rem;
+    border-bottom-right-radius: .0625rem;
+}
+
+/* 居民惠补统计样式 */
+.resident-stats {
+    margin-top: .125rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 
+.rating-grades {
+    display: flex;
+    flex-direction: column;
+    gap: .05rem;
+}
+
+.rating-item {
+    display: flex;
+    align-items: center;
+    gap: .1rem;
+}
+
+.rating-name {
+    width: 30px;
+    color: #a8c6ff;
+    font-size: .175rem;
+}
+
+.rating-bar {
+    flex: 1;
+    height: .125rem;
+    background-color: rgba(42, 130, 228, 0.2);
+    border-radius: .0625rem;
+    overflow: hidden;
+}
+
+.bar-filled {
+    height: 100%;
+    background: linear-gradient(to right, #29edf3, #2a82e4);
+    border-radius: .0625rem;
+}
+
+.rating-count {
+    width: 60px;
+    color: #fff;
+    font-size: .175rem;
+    text-align: right;
+} */
+
+.child-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.panel-bottom {
+    padding-bottom: 0rem !important;
+}
+
+.metric-box:last-child {
+    max-height: 3.25rem;
+    overflow-y: scroll;
+}
