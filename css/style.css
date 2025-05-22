@@ -130,7 +130,6 @@ body {
     align-items: center;
     height: .6rem;
     position: relative;
-    border-bottom: 1px solid rgba(42, 130, 228, 0.5);
 }
 
 .panel-header>img {
@@ -189,8 +188,7 @@ body {
 }
 
 .panel-content {
-    padding: .1rem;
-    padding-top: .125rem;
+    padding: 0rem .0625rem .0625rem;
 }
 
 /* 民政概览面板内容横向布局 */
@@ -361,11 +359,12 @@ body {
 }
 
 .group-value {
-    color: #fff;
+    color: #B7DBFF;
     font-size: .2rem;
 }
 
 .section-title {
+    color: #28B7FF;
     font-size: .2rem;
     margin-bottom: .125rem;
 }
@@ -386,7 +385,7 @@ body {
 
 .stat-value {
     font-size: .225rem;
-    color: #29edf3;
+    color: #B7DBFF;
     white-space: nowrap;
 }
 
@@ -412,7 +411,7 @@ body {
 }
 
 .affairs-section {
-    padding: .125rem;
+    padding: .075rem;
     padding-bottom: 0rem;
     background: linear-gradient(180deg, rgba(40, 183, 255, 0.14) 0%, rgba(79, 40, 255, 0) 100%);
     flex: 1;
@@ -428,13 +427,10 @@ body {
     margin-bottom: .125rem;
 }
 
-/* 区划地名样式 */
-.location-content {
-    padding: .125rem 0;
-}
-
 .location-stats {
     display: flex;
+    padding: .075rem;
+    background: linear-gradient(180deg, rgba(40, 183, 255, 0.14) 0%, rgba(79, 40, 255, 0) 100%);
 }
 
 .location-stat {
@@ -547,6 +543,7 @@ body {
 }
 
 .protection-title {
+    color: #A2D1FF;
     font-size: .2rem;
     margin-bottom: .125rem;
 }
@@ -593,7 +590,7 @@ body {
     right: -25px;
     top: -2px;
     font-size: .175rem;
-    color: #fff;
+    color: #B7DBFF;
 }
 
 .teams-metrics {
@@ -605,9 +602,9 @@ body {
 }
 
 .teams-title {
+    color: #A2D1FF;
     font-size: .2rem;
     margin-bottom: .125rem;
-    color: #fff;
 }
 
 .teams-details {
@@ -628,7 +625,7 @@ body {
 }
 
 .team-value {
-    color: #fff;
+    color: #B7DBFF;
 }
 
 .base-metrics {
@@ -637,13 +634,9 @@ body {
 }
 
 .base-title {
+    color: #A2D1FF;
     font-size: .2rem;
     margin-bottom: .125rem;
-    color: #fff;
-}
-
-.base-details {
-    /* margin-bottom: .125rem; */
 }
 
 .base-row {
@@ -656,7 +649,7 @@ body {
 }
 
 .base-value {
-    color: #fff;
+    color: #B7DBFF;
 }
 
 /* 地图容器 */
@@ -695,7 +688,7 @@ body {
     overflow: hidden;
     margin-left: -1.25rem;
     margin-right: -1.25rem;
-    background: url(../imgs/map.png) no-repeat center center;
+    background: url(../imgs/map.png) no-repeat center 16%;
     background-size: 14rem 9.75rem;
 }
 
@@ -765,8 +758,10 @@ body {
 }
 
 .nav-item.active {
-    color: #29edf3;
-    border-bottom: 2px solid #29edf3;
+    background: linear-gradient(90deg, #A2D1FF 0%, #9BF8FF 100%);
+    box-shadow: 0px 2px 4px 0px rgba(0, 255, 252, 0.1);
+    border-radius: .075rem;
+    color: rgba(0, 42, 73, 0.9);
 }
 
 /* 社会救助样式 */
@@ -813,7 +808,7 @@ body {
 }
 
 .elderly-distribution {
-    padding: .125rem;
+    padding: .075rem;
     padding-right: .25rem;
     background: linear-gradient(180deg, rgba(40, 183, 255, 0.14) 0%, rgba(79, 40, 255, 0) 100%);
 }
@@ -821,7 +816,7 @@ body {
 .elderly-care-ratio {
     flex: 1;
     background: linear-gradient(180deg, rgba(40, 183, 255, 0.14) 0%, rgba(79, 40, 255, 0) 100%);
-    padding: .125rem;
+    padding: .075rem;
     padding-bottom: .025rem;
 }
 
@@ -829,7 +824,7 @@ body {
     width: 100%;
     height: .075rem;
     background: linear-gradient(to right, #2a82e4, #29edf3);
-    margin-bottom: .125rem;
+    margin-bottom: .025rem;
 }
 
 .care-type:nth-child(1) .gradient-bar {
@@ -849,46 +844,6 @@ body {
     justify-content: space-between;
 }
 
-/* 
-.rating-grades {
-    display: flex;
-    flex-direction: column;
-    gap: .05rem;
-}
-
-.rating-item {
-    display: flex;
-    align-items: center;
-    gap: .1rem;
-}
-
-.rating-name {
-    width: 30px;
-    color: #a8c6ff;
-    font-size: .175rem;
-}
-
-.rating-bar {
-    flex: 1;
-    height: .125rem;
-    background-color: rgba(42, 130, 228, 0.2);
-    border-radius: .0625rem;
-    overflow: hidden;
-}
-
-.bar-filled {
-    height: 100%;
-    background: linear-gradient(to right, #29edf3, #2a82e4);
-    border-radius: .0625rem;
-}
-
-.rating-count {
-    width: 60px;
-    color: #fff;
-    font-size: .175rem;
-    text-align: right;
-} */
-
 .child-row {
     display: flex;
     justify-content: space-between;
@@ -901,4 +856,60 @@ body {
 .metric-box:last-child {
     max-height: 3.25rem;
     overflow-y: scroll;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    width: 10rem;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+.affair-stat:last-child {
+    margin-bottom: 0;
+}
+
+.section-title-value {
+    white-space: nowrap;
+    color: #A2D1FF;
+    font-size: .275rem;
+}
+
+.society .section-title {
+    margin-bottom: 0px;
+}
+
+.society .section-title-value {
+    margin-bottom: .125rem;
+}
+
+.society-stat {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 20%;
+}
+
+.society-item {
+    margin-bottom: .0625rem;
+    flex-basis: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.society-item .label {
+    font-size: .175rem;
+    color: #B7DBFF;
+}
+
+.society-item .value {
+    font-size: .2rem;
+    color: #B7DBFF;
+}
+
+.society-item .value .unit {
+    font-size: .15rem;
+    color: #B7DBFF;
 }
