@@ -128,7 +128,7 @@ body {
 .panel-header {
     display: flex;
     align-items: center;
-    height: .6rem;
+    height: .5rem;
     position: relative;
 }
 
@@ -172,13 +172,17 @@ body {
 }
 
 .panel-header .middle img {
-    height: 100%;
-    width: auto;
+    height: auto;
+    width: 100%;
+}
+
+.panel-header .right {
+    height: .5rem;
 }
 
 .panel-header .right img {
-    width: 2.5rem;
-    height: auto;
+    height: .5rem;
+    width: auto;
 }
 
 .panel-header h2 {
@@ -317,7 +321,8 @@ body {
 
 .charity-item {
     flex: 1;
-    padding: .125rem;
+    padding: .1rem;
+    padding-bottom: 0px;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -332,10 +337,11 @@ body {
 
 .charity-title {
     font-size: .2rem;
+    line-height: .2rem;
     color: #a8c6ff;
     white-space: nowrap;
     text-overflow: ellipsis;
-    margin-bottom: .125rem;
+    margin-bottom: .1rem;
 }
 
 .charity-value {
@@ -545,7 +551,7 @@ body {
 .protection-title {
     color: #A2D1FF;
     font-size: .2rem;
-    margin-bottom: .125rem;
+    line-height: .2rem;
 }
 
 .protection-value {
@@ -605,10 +611,6 @@ body {
     color: #A2D1FF;
     font-size: .2rem;
     margin-bottom: .125rem;
-}
-
-.teams-details {
-    margin-bottom: .1875rem;
 }
 
 .teams-parent {
@@ -681,32 +683,24 @@ body {
     border-color: #fff transparent transparent transparent;
 }
 
-.map-container {
-    flex: 1;
-    border-radius: .0625rem;
-    position: relative;
-    overflow: hidden;
-    margin-left: -1.25rem;
-    margin-right: -1.25rem;
-    background: url(../imgs/map.png) no-repeat center 16%;
-    background-size: 14rem 9.75rem;
-}
-
 .popup-box {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background-color: rgba(9, 24, 56, 0.9);
     border: 1px solid rgba(42, 130, 228, 0.7);
     border-radius: .0625rem;
     padding: .125rem;
     width: 2.5rem;
-    display: none;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    pointer-events: none;
 }
 
 .popup-box.visible {
-    display: block;
+    opacity: 1;
+    visibility: visible;
 }
 
 .popup-title {
@@ -751,6 +745,10 @@ body {
     padding: .125rem .25rem;
     cursor: pointer;
     transition: color 0.3s;
+    background: linear-gradient(90deg, rgba(0, 85, 255, 0.3) 0%, rgba(0, 85, 255, 0.6) 49%, rgba(0, 85, 255, 0.2) 100%), #000000;
+    box-shadow: 0px 2px 4px 0px rgba(0, 255, 252, 0.1);
+    border-radius: .075rem;
+    border-image: linear-gradient(135deg, rgba(141, 179, 255, 0.2), rgba(161, 192, 255, 1), rgba(85, 107, 153, 0.5)) 1 1;
 }
 
 .nav-item:hover {
@@ -912,4 +910,80 @@ body {
 .society-item .value .unit {
     font-size: .15rem;
     color: #B7DBFF;
+}
+
+.map-container {
+    position: relative;
+    flex: 1;
+    border-radius: .0625rem;
+    position: relative;
+    overflow: hidden;
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+    background: url(../imgs/map.png) no-repeat center 16%;
+    background-size: 14rem 9.75rem;
+}
+
+.point {
+    position: absolute;
+    width: .625rem;
+    height: .625rem;
+    top: 3.3rem;
+    left: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.point::before {
+    content: "";
+    display: block;
+    width: .4rem;
+    height: .475rem;
+    background: url(../imgs/point_normal.png) no-repeat center center;
+    background-size: 100% 100%;
+}
+
+.point:hover::before {
+    background: url(../imgs/ponit_active.png) no-repeat center center;
+    background-size: 100% 100%;
+}
+
+#point_1 {
+    top: 3.3rem;
+    left: 2rem;
+}
+
+#point_2 {
+    top: 2.5rem;
+    left: 2.8rem;
+}
+
+#point_3 {
+    top: 5.75rem;
+    left: 3rem;
+}
+
+#point_4 {
+    top: 3.6875rem;
+    left: 4.0875rem;
+}
+
+#point_5 {
+    top: 2.1875rem;
+    left: 6.5125rem;
+}
+
+#point_6 {
+    top: 6.25rem;
+    left: 4.25rem;
+}
+
+#point_7 {
+    top: 5rem;
+    left: 6.25rem;
+}
+
+#point_8 {
+    top: 3.5rem;
+    left: 9rem;
 }
