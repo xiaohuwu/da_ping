@@ -1,17 +1,5 @@
 /* 全局样式 */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Microsoft YaHei", sans-serif;
-}
 
-body {
-    width: 100%;
-    position: relative;
-    background: url(../imgs/body_bg.png) no-repeat center center;
-    background-size: 100% 100%;
-}
 
 .dashboard {
     width: 100%;
@@ -289,28 +277,3 @@ body {
     color: #a8c6ff;
 }
 
-/* 底部导航 */
-.bottom-nav {
-    display: flex;
-    justify-content: space-around;
-    padding: .125rem 0;
-    border-radius: .0625rem;
-    margin-top: .125rem;
-}
-
-.nav-item {
-    font-size: .175rem;
-    color: #a8c6ff;
-    padding: .125rem .25rem;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.nav-item:hover {
-    color: #29edf3;
-}
-
-.nav-item.active {
-    color: #29edf3;
-    border-bottom: .02rem solid #29edf3;
-}

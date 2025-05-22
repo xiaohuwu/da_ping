@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>蒲江智慧民政数字看板</title>
+    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/yang_lao.css">
     <!-- 引入 ECharts -->
     <script src="js/echarts.js"></script>
@@ -27,6 +28,7 @@
                 <!-- 老年人总数 -->
                 <div class="panel elderly-dashboard">
                     <div class="panel-header">
+
                         <div class="left">
                             <div class="elderly-stats-title">老年人总数</div>
                             <div class="elderly-stats-value">97879<span class="unit">人</span></div>
@@ -97,7 +99,39 @@
                 <div class="location-selector">
                     <div class="location-box">蒲江县</div>
                 </div>
-                <div id="mapContainer" class="map-container"></div>
+
+                <div id="mapContainer" class="map-container">
+                    <div id="point_1" class="point"> </div>
+                    <div id="point_2" class="point"></div>
+                    <div id="point_3" class="point"></div>
+                    <div id="point_4" class="point"></div>
+                    <div id="point_5" class="point"></div>
+                    <div id="point_6" class="point"></div>
+                    <div id="point_7" class="point"></div>
+                    <div id="point_8" class="point"></div>
+                </div>
+
+                <div class="popup-box visible" id="districtInfo">
+                    <div class="popup-title">鹤山街道</div>
+                    <div class="popup-content">
+                        <div class="popup-row">
+                            <div class="popup-label">民政服务机构</div>
+                            <div class="popup-value">579<span class="unit">个</span></div>
+                        </div>
+                        <div class="popup-row">
+                            <div class="popup-label">民政服务对象</div>
+                            <div class="popup-value">136,681<span class="unit">人</span></div>
+                        </div>
+                        <div class="popup-row">
+                            <div class="popup-label">民政补贴发放</div>
+                            <div class="popup-value">681,579<span class="unit">万元</span></div>
+                        </div>
+                        <div class="popup-row">
+                            <div class="popup-label">民政补贴人数</div>
+                            <div class="popup-value">8980<span class="unit">人</span></div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- 底部导航 -->
                 <div class="bottom-nav">
