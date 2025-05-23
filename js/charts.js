@@ -15,7 +15,7 @@ function initInvestmentChart() {
     const myChart = echarts.init(chartDom, 'dark');
 
     const option = {
-
+        backgroundColor: 'transparent',
         grid: {
             top: 25,
             right: 15,
