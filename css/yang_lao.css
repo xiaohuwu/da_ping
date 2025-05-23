@@ -100,7 +100,7 @@
     overflow: hidden;
     margin-left: -1.25rem;
     margin-right: -1.25rem;
-    background: url(../imgs/map.png) no-repeat center center;
+    background: url(../imgs/map.png) no-repeat center 16%;
     background-size: 14rem 9.75rem;
 }
 
@@ -126,6 +126,7 @@
 
 .panel-middle {
     padding: .1rem;
+    padding-top: 0rem;
 }
 
 
@@ -261,4 +262,53 @@
 .legend-text {
     font-size: .12rem;
     color: #a8c6ff;
+}
+
+.row {
+    display: flex;
+    padding-left: .125rem;
+}
+
+.row>div {
+    flex: 1;
+}
+
+#point_1 {
+    top: 3.3rem;
+    left: 2.5rem;
+}
+
+#point_2 {
+    top: 2.5rem;
+    left: 3.3rem;
+}
+
+#point_3 {
+    top: 5.75rem;
+    left: 3.5rem;
+}
+
+#point_4 {
+    top: 3.6875rem;
+    left: 4.3875rem;
+}
+
+#point_5 {
+    top: 2.1875rem;
+    left: 6.5125rem;
+}
+
+#point_6 {
+    top: 6.25rem;
+    left: 4.55rem;
+}
+
+#point_7 {
+    top: 5rem;
+    left: 6.75rem;
+}
+
+#point_8 {
+    top: 3.5rem;
+    left: 9.5rem;
 }
