@@ -1,10 +1,41 @@
 // 等待页面加载完成
 document.addEventListener('DOMContentLoaded', function () {
-    initAgeDistributionChart()
-    initOrganChart()
-    initInvestmentChart()
-    initDeviceChart()
-    initServiceChart()
+
+    initInvestmentChart() //服务老人人次折线图
+
+    data = [
+        { value: 1500, name: '90岁以上', itemStyle: { color: '#00cbff' } },
+        { value: 1700, name: '80-90岁', itemStyle: { color: '#3a9eff' } },
+        { value: 1800, name: '70-80岁', itemStyle: { color: '#00ffd0' } },
+        { value: 1600, name: '60-70岁', itemStyle: { color: '#ffa458' } }
+    ]
+    initPieChart(data, "ageDistributionChart");
+
+    data = [
+        { value: 15.81, name: '区域性养老服务中心', itemStyle: { color: '#00cbff' } },
+        { value: 37.42, name: '社区养老设施', itemStyle: { color: '#3a9eff' } },
+        { value: 67.78, name: '社区为老服务站', itemStyle: { color: '#00ffd0' } },
+        { value: 58.84, name: '社区为老服务点', itemStyle: { color: '#ffa458' } }
+    ]
+    initPieChart(data, "organChart");
+    // initOrganChart()
+
+    data = [
+        { value: 250, name: '烟感', itemStyle: { color: '#00cbff' } },
+        { value: 350, name: '紧急呼叫器', itemStyle: { color: '#3a9eff' } },
+        { value: 220, name: '摄像头', itemStyle: { color: '#00ffd0' } },
+        { value: 150, name: '智能手环', itemStyle: { color: '#ffa458' } }
+    ]
+    initPieChart(data, "deviceChart");
+    // initDeviceChart()
+    data = [
+        { value: 250, name: '上门监测', itemStyle: { color: '#00cbff' } },
+        { value: 350, name: '心理辅导', itemStyle: { color: '#3a9eff' } },
+        { value: 220, name: '家政', itemStyle: { color: '#00ffd0' } },
+        { value: 150, name: '助餐服务', itemStyle: { color: '#ffa458' } }
+    ]
+    initPieChart(data, "serviceChart");
+    // initServiceChart()
     initEvaluateChart()
     // 为底部导航添加点击事件
     addNavEvents();
@@ -136,9 +167,31 @@ function initInvestmentChart() {
     });
 }
 
-function initAgeDistributionChart() {
-    const chartDom = document.getElementById('ageDistributionChart');
+function initPieChart(data, domId) {
+    const chartDom = document.getElementById(domId);
     const myChart = echarts.init(chartDom, 'dark');
+
+    var legend_data = [];
+    var pieData = [];
+    var colors = [['#288EF3', '#3BD8F7'], ['#FB9220', '#FBBE20'], ['#05E3E5', '#1AF4D7'], ['#ED981A', '#F34663'],
+    ['#7295FF', '#7EB4FF'], ['#FF748B', '#FFA19A'], ['#FF748B', '#FFA19A'], ['#FF748B', '#FFA19A']];
+    $.each(data, function (i, n) {
+        legend_data.push(n.name);
+        var v = {
+            value: n.value, name: n.name, itemStyle: {
+                color: {
+                    type: 'linear', //线性渐变
+                    x: 0, y: 0, x2: 0, y2: 1, colorStops: [{
+                        offset: 0, color: colors[i][1] // 0% 处的颜色
+                    }, {
+                        offset: 1, color: colors[i][0] // 100% 处的颜色
+                    }]
+                }
+            }
+        };
+        pieData.push(v)
+    });
+    console.log("pieData", pieData)
 
     const option = {
         backgroundColor: 'transparent',
@@ -164,7 +217,7 @@ function initAgeDistributionChart() {
                 color: '#a8c6ff',
                 fontSize: 12
             },
-            data: ['90岁以上', '80-90岁', '70-80岁', '60-70岁']
+            data: legend_data
         },
         series: [
             {
@@ -199,12 +252,7 @@ function initAgeDistributionChart() {
                     length2: 10,
                     smooth: true
                 },
-                data: [
-                    { value: 1500, name: '90岁以上', itemStyle: { color: '#00cbff' } },
-                    { value: 1700, name: '80-90岁', itemStyle: { color: '#3a9eff' } },
-                    { value: 1800, name: '70-80岁', itemStyle: { color: '#00ffd0' } },
-                    { value: 1600, name: '60-70岁', itemStyle: { color: '#ffa458' } }
-                ],
+                data: pieData,
                 emphasis: {
                     itemStyle: {
                         shadowBlur: 10,
