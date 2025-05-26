@@ -2,7 +2,30 @@
 document.addEventListener('DOMContentLoaded', function () {
     // 初始化所有图表
     initInvestmentChart();
-    initExpenditurePieChart();
+
+    data = [
+        {
+            value: 3219.65,
+            name: '社会福利',
+            itemStyle: { color: '#ff9a22' }
+        },
+        {
+            value: 2346.78,
+            name: '社会救助',
+            itemStyle: { color: '#ff5a54' }
+        },
+        {
+            value: 2567.93,
+            name: '民政管理事物',
+            itemStyle: { color: '#4992ff' }
+        },
+        {
+            value: 2054.24,
+            name: '行政事业单位养老支出',
+            itemStyle: { color: '#29edf3' }
+        }
+    ]
+    initExpenditurePieChart(data);
     // 为底部导航添加点击事件
     addNavEvents();
 });
@@ -117,12 +140,32 @@ function initInvestmentChart() {
 }
 
 // 上年度实际支出占比饼图
-function initExpenditurePieChart() {
+function initExpenditurePieChart(data) {
     const chartDom = document.getElementById('expenditurePieChart');
     if (!chartDom) return;
 
     const myChart = echarts.init(chartDom, 'dark');
-
+    var legend_data = [];
+    var pieData = [];
+    var colors = [['#288EF3', '#3BD8F7'], ['#FB9220', '#FBBE20'], ['#05E3E5', '#1AF4D7'], ['#ED981A', '#F34663'],
+    ['#7295FF', '#7EB4FF'], ['#FF748B', '#FFA19A'], ['#FF748B', '#FFA19A'], ['#FF748B', '#FFA19A']];
+    $.each(data, function (i, n) {
+        legend_data.push(n.name);
+        var v = {
+            value: n.value, name: n.name, itemStyle: {
+                color: {
+                    type: 'linear', //线性渐变
+                    x: 0, y: 0, x2: 0, y2: 1, colorStops: [{
+                        offset: 0, color: colors[i][1] // 0% 处的颜色
+                    }, {
+                        offset: 1, color: colors[i][0] // 100% 处的颜色
+                    }]
+                }
+            }
+        };
+        pieData.push(v)
+    });
+    console.log("pieData", pieData)
     const option = {
         backgroundColor: 'transparent',
         tooltip: {
@@ -147,7 +190,7 @@ function initExpenditurePieChart() {
                 color: '#a8c6ff',
                 fontSize: 9
             },
-            data: ['社会福利', '社会救助', '民政管理事物', '行政事业单位养老支出']
+            data: legend_data
         },
         series: [
             {
@@ -164,32 +207,11 @@ function initExpenditurePieChart() {
                 label: {
                     show: false
                 },
-                data: [
-                    {
-                        value: 3219.65,
-                        name: '社会福利',
-                        itemStyle: { color: '#ff9a22' }
-                    },
-                    {
-                        value: 2346.78,
-                        name: '社会救助',
-                        itemStyle: { color: '#ff5a54' }
-                    },
-                    {
-                        value: 2567.93,
-                        name: '民政管理事物',
-                        itemStyle: { color: '#4992ff' }
-                    },
-                    {
-                        value: 2054.24,
-                        name: '行政事业单位养老支出',
-                        itemStyle: { color: '#29edf3' }
-                    }
-                ]
+                data: pieData,
+
             }
         ]
     };
-
     // 添加中心文本
     const graphic = {
         type: 'text',
@@ -208,63 +230,6 @@ function initExpenditurePieChart() {
     option.graphic = [graphic];
 
     myChart.setOption(option);
-
-    // // 添加鼠标hover事件
-    // myChart.on('mouseover', function (params) {
-    //     if (params.componentType === 'series' && params.seriesType === 'pie') {
-    //         // 创建标记图片元素 - 使用自定义div样式而不是图片
-    //         const marker = document.createElement('div');
-    //         marker.id = 'pie-marker';
-    //         marker.style.cssText = `
-    //             position: fixed;
-    //             left: ${params.event.offsetX + chartDom.getBoundingClientRect().left}px;
-    //             top: ${params.event.offsetY + chartDom.getBoundingClientRect().top - 80}px;
-    //             width: auto;
-    //             height: auto;
-    //             padding: 10px 15px;
-    //             background-color: rgba(3, 18, 45, 0.7);
-    //             border: 1px solid #4992ff;
-    //             border-radius: 5px;
-    //             z-index: 100;
-    //             pointer-events: none;
-    //             color: #fff;
-    //             font-size: 14px;
-    //             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    //             overflow: visible;
-    //         `;
-
-    //         // 计算百分比
-    //         const percentage = (params.value / 12188.6 * 100).toFixed(2);
-
-    //         // 添加标记内容 - 模拟图片中的样式
-    //         marker.innerHTML = `
-    //             <div style="display: flex; align-items: center;z-index=100;">
-    //                 <div style="width: 8px; height: 8px; border-radius: 50%; background-color: ${params.color}; margin-right: 8px;"></div>
-    //                 <div style="font-weight: bold;">${params.name}</div>
-    //             </div>
-    //             <div style="margin-top: 5px; margin-left: 16px; color: #29edf3; white-space: nowrap;">
-    //                 ${params.value.toFixed(2)} (${percentage}%)
-    //             </div>
-    //         `;
-
-    //         // 移除旧的标记（如果存在）
-    //         const oldMarker = document.getElementById('pie-marker');
-    //         if (oldMarker) {
-    //             oldMarker.remove();
-    //         }
-
-    //         // 添加到body而不是图表容器
-    //         document.body.appendChild(marker);
-    //     }
-    // });
-
-    // // 移除鼠标离开时的标记
-    // myChart.on('mouseout', function () {
-    //     const marker = document.getElementById('pie-marker');
-    //     if (marker) {
-    //         marker.remove();
-    //     }
-    // });
 
     // 响应窗口大小变化
     window.addEventListener('resize', function () {
