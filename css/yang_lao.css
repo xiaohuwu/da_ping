@@ -163,12 +163,16 @@
 .age-distribution-title {
     font-size: .2rem;
     color: #A2D1FF;
-    margin-top: .1rem;
+    margin-top: 0rem;
 }
 
 .age-distribution-chart {
     height: 2.2rem;
     position: relative;
+}
+
+#investmentChart {
+    height: 1.8rem;
 }
 
 /* Panel Bottom - Care Type Ratio */
